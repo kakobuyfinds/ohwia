@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#263c37">
+  <title>VigorBuy spreadsheet — kategorie, zdjęcia QC i poradnik zakupów</title>
+  <meta name="description" content="Poznaj VigorBuy spreadsheet po polsku. Przeglądaj kategorie, porównuj wymiary, sprawdzaj zdjęcia QC i planuj pełny koszt zamówienia.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:title" content="VigorBuy spreadsheet — wybieraj na podstawie szczegółów">
+  <meta property="og:description" content="Polski przewodnik po kategoriach, rozmiarach, zdjęciach QC i kosztach zakupów.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="VigorBuy spreadsheet — polski przewodnik">
+  <meta name="twitter:description" content="Kategorie, kontrola wymiarów i praktyczna lista sprawdzeń przed zakupem.">
+  <link rel="preconnect" href="resources.claroshop.com">
+  <link rel="dns-prefetch" href="//media.gucci.com">
+  <link rel="dns-prefetch" href="//www.luxedh.com">
+  <!--
+    index.html
+    Badanie: zapytanie „VigorBuy spreadsheet”, 7 listopada 2026.
+    Przeanalizowano wyniki dostępnej wyszukiwarki; nie potwierdzono
+    kolejności ani dokładnego składu pierwszej strony Google.
+    Dziesięć różnych domen i rozpoznane tematy:
+    1. vigorspreadsheet.com — katalog, poradnik, transport.
+    2. vigorbuylists.com — zdjęcia, kategorie, linki do produktów.
+    3. ssfinds.com — QC, instrukcja pierwszego zakupu.
+    4. vigorbuywithqc.com — zdjęcia magazynowe, warianty, wyszukiwanie.
+    5. copsheet.com — filtrowanie, marki, konwersja linków.
+    6. vigorbuys.com — kategorie i QC; dostępny opis z wyników,
+       bez potwierdzonego odczytu pełnej strony.
+    7. vigorbuy.io — wybór produktów i opisy QC; dostępny opis
+       z wyników, bez potwierdzonego odczytu pełnej strony.
+    8. vigorbuy.world — dziesięć kategorii i przewodnik po modzie.
+    9. vigorbuy.makeup — kategorie i artykuły zakupowe.
+    10. vigorbuyspreadhseet.com — odkrywanie ofert i planowanie zamówienia.
+    Synteza redakcyjna jest oryginalna. Nie przejęto deklaracji o liczbie
+    produktów, promocjach, autentyczności, ocenach ani częstotliwości aktualizacji.
+    Frazy uzupełniające: VigorBuy finds; VigorBuy QC;
+    VigorBuy linki do produktów; VigorBuy poradnik zakupowy.
+    Nie ustawiono canonical ani og:url, ponieważ nie podano adresu publikacji.
+  -->
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f7f4ec;
+      --white: #fffefb;
+      --ink: #263c37;
+      --muted: #53645d;
+      --line: #d8ddd0;
+      --accent: #d5ef87;
+      --soft: #e9eee2;
+      --warm: #eee0d1;
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+      -webkit-text-size-adjust: 100%;
+    }
+    a { color: inherit; text-underline-offset: .22em; }
+    a:focus-visible, summary:focus-visible {
+      outline: 3px solid #517629;
+      outline-offset: 5px;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    h1, h2, h3, p, figure { margin: 0; }
+    h1, h2, h3 { line-height: 1.12; }
+    h1 { font-size: clamp(2.75rem, 6vw, 5.5rem); letter-spacing: -.065em; font-weight: 750; }
+    h2 { font-size: clamp(1.8rem, 3.4vw, 3rem); letter-spacing: -.045em; }
+    h3 { font-size: 1.25rem; letter-spacing: -.025em; }
+    p + p { margin-top: 1rem; }
+    .wrap { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
+    .eyebrow {
+      display: block;
+      font-size: .73rem;
+      font-weight: 750;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+    .muted { color: var(--muted); }
+    .masthead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-block: 23px;
+      border-bottom: 1px solid var(--line);
+    }
+    .brand {
+      font-size: clamp(1rem, 3vw, 1.35rem);
+      font-weight: 800;
+      letter-spacing: -.04em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .edition { font-size: .78rem; text-align: right; color: var(--muted); }
+    .category-section { padding-top: 25px; }
+    .category-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .category-heading h2 { font-size: 1rem; letter-spacing: 0; }
+    .category-heading p { font-size: .78rem; color: var(--muted); }
+    .categories { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+    .categories a {
+      min-height: 67px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 11px 14px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      text-decoration: none;
+      font-size: .86rem;
+      font-weight: 700;
+      transition: background .15s;
+    }
+    .categories a:hover { background: var(--accent); }
+    .categories small { font-size: .68rem; font-weight: 450; color: var(--muted); }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      align-items: center;
+      gap: 55px;
+      padding-block: 62px 58px;
+    }
+    .hero h1 span { display: block; }
+    .hero h1 .thin { font-weight: 400; }
+    .lead { font-size: 1.07rem; color: var(--muted); margin-block: 23px; max-width: 52ch; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 49px;
+      padding: 12px 23px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--white);
+      font-weight: 650;
+      font-size: .9rem;
+      text-decoration: none;
+    }
+    .button:hover { background: #3d574d; }
+    .micro { font-size: .77rem; color: var(--muted); margin-top: 14px; }
+    .hero-visual { position: relative; }
+    .hero-visual figure {
+      overflow: hidden;
+      border-radius: 48% 48% 18px 18px;
+      background: white;
+      border: 1px solid var(--line);
+    }
+    .hero-visual img { width: 100%; aspect-ratio: 1/1; object-fit: contain; }
+    .hero-visual figcaption {
+      padding: 17px 20px;
+      border-top: 1px solid var(--line);
+      font-size: .78rem;
+      background: var(--soft);
+    }
+    .sticker {
+      position: absolute;
+      right: -10px;
+      top: 24px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      display: grid;
+      place-content: center;
+      text-align: center;
+      background: var(--accent);
+      font-size: .78rem;
+      line-height: 1.35;
+      font-weight: 750;
+      transform: rotate(10deg);
+    }
+    .answer {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 35px;
+      padding: 32px;
+      background: var(--ink);
+      color: var(--white);
+      border-radius: var(--radius);
+    }
+    .answer h2 { font-size: 1.65rem; }
+    .answer p { color: #e3e9e1; }
+    .section { padding-block: 62px; border-bottom: 1px solid var(--line); }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 28px;
+    }
+    .section-head p { max-width: 44ch; color: var(--muted); font-size: .93rem; }
+    .topics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .topics span {
+      border: 1px solid var(--line);
+      padding: 6px 12px;
+      border-radius: 30px;
+      font-size: .8rem;
+      background: var(--white);
+    }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .step { padding: 26px; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); }
+    .step b {
+      display: inline-grid;
+      place-content: center;
+      width: 38px;
+      height: 38px;
+      background: var(--accent);
+      border-radius: 50%;
+      font-size: .82rem;
+      margin-bottom: 24px;
+    }
+    .step p { margin-top: 13px; font-size: .92rem; color: var(--muted); }
+    .editorial { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .editorial figure { border-radius: var(--radius); overflow: hidden; background: #fff; border: 1px solid var(--line); }
+    .editorial img { width: 100%; height: 310px; object-fit: contain; }
+    .editorial figcaption { padding: 22px; border-top: 1px solid var(--line); }
+    .editorial h3 { margin-bottom: 10px; }
+    .editorial p { color: var(--muted); font-size: .91rem; }
+    .editorial .text-link { display: inline-block; margin-top: 15px; font-weight: 700; font-size: .87rem; }
+    .note { font-size: .78rem; color: var(--muted); margin-top: 18px; }
+    .articles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .article { border-top: 3px solid var(--ink); padding-top: 22px; }
+    .article .eyebrow { color: var(--muted); }
+    .article h3 { font-size: 1.55rem; margin-bottom: 18px; }
+    .article p { font-size: .94rem; color: var(--muted); }
+    .article ul { padding-left: 20px; color: var(--muted); font-size: .93rem; }
+    .article li { padding-block: 4px; }
+    .table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 15px; }
+    table { width: 100%; border-collapse: collapse; text-align: left; background: var(--white); font-size: .9rem; }
+    th, td { padding: 16px 20px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { background: var(--soft); font-weight: 750; }
+    tr:last-child td { border-bottom: 0; }
+    .checklist { background: var(--warm); border-radius: var(--radius); padding: 32px; margin-top: 28px; }
+    .checklist h3 { margin-bottom: 14px; }
+    .checklist ul { margin: 0; padding-left: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 30px; font-size: .92rem; }
+    .faq-layout { display: grid; grid-template-columns: .8fr 1.5fr; gap: 50px; }
+    .faq-layout > div > p { color: var(--muted); margin-top: 20px; font-size: .93rem; }
+    details { border-bottom: 1px solid var(--line); padding: 18px 0; }
+    details:first-child { padding-top: 0; }
+    summary { cursor: pointer; font-weight: 700; padding-right: 12px; line-height: 1.45; }
+    details p { margin-top: 13px; color: var(--muted); font-size: .93rem; }
+    .closing {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 34px;
+      background: var(--accent);
+      border-radius: var(--radius);
+      margin-block: 48px;
+    }
+    .closing p { margin-top: 10px; max-width: 60ch; font-size: .93rem; }
+    footer { padding-bottom: 30px; font-size: .79rem; color: var(--muted); }
+    footer p { max-width: 95ch; margin-top: 13px; }
+    @media (min-width: 900px) {
+      .below-fold { content-visibility: auto; contain-intrinsic-size: auto 650px; }
+    }
+    @media (max-width: 800px) {
+      .categories { grid-template-columns: repeat(3, 1fr); }
+      .hero { gap: 25px; padding-block: 40px; }
+      .hero h1 { font-size: clamp(2.5rem, 6.7vw, 4rem); }
+      .sticker { width: 75px; height: 75px; right: -5px; font-size: .65rem; }
+      .answer { grid-template-columns: 1fr; gap: 18px; }
+      .steps { grid-template-columns: 1fr; }
+      .step { display: grid; grid-template-columns: 40px 1fr; gap: 4px 15px; }
+      .step b { grid-row: span 2; margin-bottom: 0; }
+      .step p { margin-top: 5px; }
+      .faq-layout { grid-template-columns: 1fr; gap: 28px; }
+      .section-head { align-items: start; flex-direction: column; gap: 15px; }
+      .closing { align-items: start; flex-direction: column; }
+    }
+    @media (max-width: 560px) {
+      .wrap { width: calc(100% - 28px); }
+      .masthead { gap: 10px; padding-block: 18px; }
+      .edition { font-size: .65rem; }
+      .categories { grid-template-columns: repeat(2, 1fr); }
+      .categories a { min-height: 61px; padding: 9px 12px; }
+      .category-heading p { display: none; }
+      .hero { grid-template-columns: 1fr; gap: 30px; }
+      .hero h1 { font-size: 3.35rem; }
+      .hero-visual { width: min(100%, 370px); margin-inline: auto; }
+      .answer, .checklist, .closing { padding: 25px; }
+      .section { padding-block: 42px; }
+      .editorial, .articles { grid-template-columns: 1fr; }
+      .editorial img { height: 270px; }
+      .checklist ul { grid-template-columns: 1fr; }
+      th, td { padding: 12px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "VigorBuy spreadsheet — kategorie, zdjęcia QC i poradnik zakupów",
+        "description": "Polskojęzyczny przewodnik po porównywaniu ofert, wymiarach, zdjęciach QC i planowaniu kosztów zamówienia.",
+        "inLanguage": "pl",
+        "about": {
+          "@type": "Thing",
+          "name": "VigorBuy spreadsheet",
+          "description": "Zestawienie linków do ofert, pomocne w porównywaniu produktów i planowaniu zakupów."
+        },
+        "hasPart": [
+          {
+            "@type": "Article",
+            "headline": "Rozmiar z tabeli, nie z przyzwyczajenia",
+            "inLanguage": "pl",
+            "description": "Jak porównywać wymiary odzieży i obuwia przed wyborem wariantu.",
+            "articleBody": "Zmierz dobrze dopasowaną rzecz z własnej szafy i porównaj wymiary z tabelą konkretnej oferty. W koszulce sprawdź szerokość pod pachami, długość i ramiona. W spodniach porównaj pas, biodra, stan i nogawkę. Przy butach odróżnij długość stopy od długości wkładki. Brak wymiarów wyjaśnij przed zakupem."
+          },
+          {
+            "@type": "Article",
+            "headline": "Zdjęcia QC: czego szukać, zanim zaakceptujesz wysyłkę",
+            "inLanguage": "pl",
+            "description": "Praktyczne sprawdzanie wariantu, wykonania i kompletności produktu.",
+            "articleBody": "Porównaj kolor, rozmiar i liczbę elementów z zamówieniem. Obejrzyj szwy, zapięcia i miejsca łączenia materiałów. Poproś o zbliżenie nieczytelnego detalu. Zdjęcia QC nie potwierdzają autentyczności, składu chemicznego ani trwałości produktu. Zdjęcia innego kupującego nie zastępują kontroli własnej sztuki."
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "inLanguage": "pl",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Co to jest VigorBuy spreadsheet?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "VigorBuy spreadsheet to zestawienie linków do ofert, zwykle uporządkowane według kategorii i uzupełnione zdjęciami lub opisami. Może mieć postać arkusza albo katalogu internetowego. Samo zestawienie nie potwierdza jakości, dostępności ani autentyczności produktów."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Dokąd prowadzą odnośniki na tej stronie?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Przyciski kategorii prowadzą do odpowiednich działów hipobuyfind.com. Pozostałe odnośniki prowadzą na stronę główną www.hipobuyfind.com. Nie są to bezpośrednie linki do koszyka VigorBuy."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Czy zdjęcia QC potwierdzają autentyczność produktu?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nie. Zdjęcia QC pomagają ocenić widoczne cechy, wariant i ewentualne wady. Nie zastępują dokumentów pochodzenia, wiarygodnej weryfikacji sprzedawcy ani specjalistycznej oceny autentyczności."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Jak dobrać rozmiar przy zakupach z katalogu?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Porównaj tabelę konkretnej oferty z wymiarami dobrze dopasowanej rzeczy. Dla butów sprawdź sposób pomiaru długości stopy lub wkładki. Nie zakładaj, że oznaczenie M albo numer EU będzie identyczne u różnych sprzedawców."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Jak policzyć pełny koszt zamówienia do Polski?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Uwzględnij cenę produktu, dostawę lokalną, opłaty pośrednika, przewalutowanie, transport międzynarodowy oraz podatki i opłaty importowe, jeżeli mają zastosowanie. Ostateczne kwoty sprawdź u usługodawcy przed płatnością."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Czy ta strona jest oficjalnym serwisem VigorBuy?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nie. To niezależny materiał informacyjny. Nie deklaruje współpracy z VigorBuy ani z markami pokazanymi na zdjęciach. Ilustracje nie potwierdzają dostępności produktów w katalogu docelowym."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/ohwia/">
+</head>
+<body>
+  <header class="wrap masthead">
+    <a class="brand" href="https://www.hipobuyfind.com" aria-label="Przejdź na stronę główną hipobuyfind.com">hipobuyfind.com</a>
+    <div class="edition">NOTATNIK ZAKUPOWY<br>Wydanie polskie · PL</div>
+  </header>
+
+  <main class="wrap">
+    <section class="category-section" aria-labelledby="categories-title">
+      <div class="category-heading">
+        <h2 id="categories-title">Zacznij od kategorii</h2>
+        <p>Bezpośrednie przejście do katalogu hipobuyfind.com</p>
+      </div>
+      <nav class="categories" aria-label="Kategorie produktów">
+        <a href="https://hipobuyfind.com/category-911-Shoes.html">Buty <small lang="en">Shoes ↗</small></a>
+        <a href="https://hipobuyfind.com/category-912-Hoodies%2FSweaters.html">Bluzy i swetry <small lang="en">Hoodies/Sweaters ↗</small></a>
+        <a href="https://hipobuyfind.com/category-913-T-Shirts.html">T-shirty <small lang="en">T-Shirts ↗</small></a>
+        <a href="https://hipobuyfind.com/category-914-Jackets.html">Kurtki <small lang="en">Jackets ↗</small></a>
+        <a href="https://hipobuyfind.com/category-915-Pants%2FShorts.html">Spodnie i szorty <small lang="en">Pants/Shorts ↗</small></a>
+        <a href="https://hipobuyfind.com/category-916-Headwear.html">Nakrycia głowy <small lang="en">Headwear ↗</small></a>
+        <a href="https://hipobuyfind.com/category-917-Sets.html">Komplety <small lang="en">Sets ↗</small></a>
+        <a href="https://hipobuyfind.com/category-918-underwear%2Funderpants.html">Bielizna <small lang="en">Underwear/underpants ↗</small></a>
+        <a href="https://hipobuyfind.com/category-919-Jersey.html">Koszulki sportowe <small lang="en">Jersey ↗</small></a>
+        <a href="https://hipobuyfind.com/category-920-Accessories.html">Akcesoria <small lang="en">Accessories ↗</small></a>
+      </nav>
+    </section>
+
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <span class="eyebrow">Mniej zgadywania. Więcej szczegółów.</span>
+        <h1 id="page-title"><span>VigorBuy</span><span class="thin">spreadsheet</span></h1>
+        <p class="lead">Od pierwszego zdjęcia do świadomego wyboru. Polski przewodnik po kategoriach, wymiarach i kontroli QC — z praktycznymi pytaniami, które warto zadać przed zakupem.</p>
+        <a class="button" href="https://www.hipobuyfind.com">Otwórz katalog hipobuyfind.com ↗</a>
+        <p class="micro">Niezależny przewodnik. Linki prowadzą do hipobuyfind.com.</p>
+      </div>
+      <div class="hero-visual">
+        <figure>
+          <img
+            src="https://resources.claroshop.com/medios-plazavip/s2/30561/3550724/62153c292de88-107840-1600x1600.jpg"
+            alt="Para białych, niskich sneakersów Nike ze znakiem Swoosh na boku"
+            width="1600"
+            height="1600"
+            fetchpriority="high"
+            loading="eager"
+            decoding="async">
+          <figcaption>Nike · przykład obuwia do porównania fasonu i detali. Zdjęcie poglądowe.</figcaption>
+        </figure>
+        <div class="sticker" aria-hidden="true">Najpierw<br>sprawdź<br>szczegóły</div>
+      </div>
+    </section>
+
+    <section class="answer" aria-labelledby="definition-title">
+      <div>
+        <span class="eyebrow">Odpowiedź wprost</span>
+        <h2 id="definition-title">Czym jest taki katalog?</h2>
+      </div>
+      <p><strong>VigorBuy spreadsheet to zestawienie linków do ofert</strong>, zwykle uporządkowane według kategorii i uzupełnione zdjęciami lub opisami. Może przypominać arkusz albo stronę z produktami. Pomaga porównać propozycje, ale nie potwierdza ich dostępności, jakości ani autentyczności. Na tej stronie znajdziesz wskazówki; przeglądanie kategorii odbywa się w hipobuyfind.com.</p>
+    </section>
+
+    <section class="section below-fold" aria-labelledby="method-title">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">01 / Metoda wyboru</span>
+          <h2 id="method-title">Dobry wybór zaczyna się<br>przed dodaniem do koszyka.</h2>
+        </div>
+        <p>VigorBuy finds i VigorBuy linki do produktów to dopiero punkt wyjścia. Najwięcej wyjaśniają wymiary, opis wariantu i warunki zamówienia.</p>
+      </div>
+      <div class="steps">
+        <article class="step">
+          <b aria-hidden="true">01</b>
+          <h3>Wybierz zastosowanie</h3>
+          <p>Buty do codziennego chodzenia, bluza do warstwowego ubioru czy lekka kurtka? Określ sezon, krój i sposób użytkowania. Zdjęcie stylizacji nie opisuje parametrów produktu.</p>
+        </article>
+        <article class="step">
+          <b aria-hidden="true">02</b>
+          <h3>Porównaj konkretny wariant</h3>
+          <p>Sprawdź kolor, rozmiar, materiał i zawartość zestawu. Dwie podobne fotografie mogą przedstawiać inne wersje. Zachowaj nazwę wariantu i identyfikator oferty.</p>
+        </article>
+        <article class="step">
+          <b aria-hidden="true">03</b>
+          <h3>Sprawdź koszt i warunki</h3>
+          <p>Oddziel cenę rzeczy od dostawy, prowizji i kosztów importu. Przed płatnością ustal zasady zwrotu, sposób reklamacji oraz dostępność wysyłki do swojego kraju.</p>
+        </article>
+      </div>
+      <div class="topics" aria-label="Główne tematy przewodnika">
+        <span>VigorBuy finds</span>
+        <span>VigorBuy QC</span>
+        <span>VigorBuy linki do produktów</span>
+        <span>VigorBuy poradnik zakupowy</span>
+      </div>
+    </section>
+
+    <section class="section below-fold" aria-labelledby="details-title">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">02 / Forma i wykończenie</span>
+          <h2 id="details-title">Przybliż detal.</h2>
+        </div>
+        <p>Wzór tkaniny, sposób obszycia i rodzaj zapięcia mówią więcej niż samo logo. Ilustracje pokazują, na co zwracać uwagę.</p>
+      </div>
+      <div class="editorial">
+        <figure>
+          <img
+            src="https://media.gucci.com/style/DarkGray_Center_0_0_1200x1200/1709280045/777066_3G001_9564_002_100_0000_Light-Animal-and-floral-print-silk-carr.jpg"
+            alt="Chusta Gucci z brązowym motywem GG oraz kolorowymi wzorami roślinnymi i zwierzęcymi"
+            width="1200"
+            height="1200"
+            loading="lazy"
+            decoding="async">
+          <figcaption>
+            <h3>Chusta: sprawdź format i krawędzie</h3>
+            <p>Na przykładzie Gucci widać znaczenie skali wzoru. Przy wyborze chusty na głowę porównaj wymiary, grubość tkaniny i wykończenie brzegów. Sam nadruk nie potwierdza składu.</p>
+            <a class="text-link" href="https://www.hipobuyfind.com">Przejdź do katalogu ↗</a>
+          </figcaption>
+        </figure>
+        <figure>
+          <img
+            src="https://www.luxedh.com/cdn/shop/products/Dior-Crystal-DioRevolution-Chain-Choker-Necklace_185584_front_0_parent.jpg?v=1679007018&amp;width=640"
+            alt="Naszyjnik Dior w złotym kolorze z grubym łańcuszkiem i literami ozdobionymi kryształkami"
+            width="640"
+            height="640"
+            loading="lazy"
+            decoding="async">
+          <figcaption>
+            <h3>Biżuteria: obejrzyj połączenia</h3>
+            <p>Naszyjnik Dior ilustruje detale ogniw i zdobień. Sprawdź długość regulacji, zapięcie i deklarowany materiał. Kolor metalu na zdjęciu nie określa jego składu ani tolerancji skóry.</p>
+            <a class="text-link" href="https://www.hipobuyfind.com">Zobacz stronę katalogu ↗</a>
+          </figcaption>
+        </figure>
+      </div>
+      <p class="note">Zdjęcia mają charakter redakcyjny i nie stanowią oferty sprzedaży. Obecność marek Nike, Gucci i Dior nie oznacza współpracy ani dostępności tych modeli w serwisie docelowym. Przy ofertach Louis Vuitton (LV) i Hermès stosuj tę samą zasadę: nazwę marki oceniaj oddzielnie od dowodów pochodzenia produktu.</p>
+    </section>
+
+    <section class="section below-fold" aria-labelledby="guides-title">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">03 / Krótkie artykuły</span>
+          <h2 id="guides-title">Dwie kontrole,<br>których nie warto pomijać.</h2>
+        </div>
+        <p>Praktyczny VigorBuy poradnik zakupowy: najpierw dopasowanie, potem ocena własnego zamówienia.</p>
+      </div>
+      <div class="articles">
+        <article class="article">
+          <span class="eyebrow">Poradnik rozmiarów</span>
+          <h3>Rozmiar z tabeli,<br>nie z przyzwyczajenia</h3>
+          <p>Zmierz dobrze dopasowaną rzecz z własnej szafy i porównaj wynik z tabelą konkretnej oferty. Oznaczenia S, M i L mogą opisywać różne kroje. Zwróć uwagę, czy szerokość podano na płasko, czy jako obwód.</p>
+          <ul>
+            <li><strong>T-shirt:</strong> szerokość pod pachami, długość i ramiona.</li>
+            <li><strong>Bluza oversize:</strong> obwód klatki, długość rękawa i zapas na warstwę pod spodem.</li>
+            <li><strong>Spodnie:</strong> pas, biodra, wysokość stanu i długość nogawki.</li>
+            <li><strong>Sneakersy:</strong> sposób pomiaru stopy, tabela modelu i szerokość buta.</li>
+          </ul>
+          <p>Nie utożsamiaj długości wkładki z długością stopy. Jeśli brakuje kluczowego wymiaru, poproś o pomiar przed zakupem. Fotografia na modelu pomaga ocenić styl, lecz nie zastępuje tabeli.</p>
+        </article>
+        <article class="article">
+          <span class="eyebrow">Poradnik VigorBuy QC</span>
+          <h3>Zdjęcia QC: czego szukać,<br>zanim zaakceptujesz wysyłkę</h3>
+          <p>QC oznacza kontrolę jakości. W praktyce zdjęcia magazynowe pomagają wykryć widoczną pomyłkę lub wadę. Zacznij od zgodności rzeczy z zamówionym wariantem, a dopiero potem oglądaj drobne detale.</p>
+          <ul>
+            <li><strong>Zgodność:</strong> kolor, rozmiar, model i liczba elementów.</li>
+            <li><strong>Wykonanie:</strong> szwy, łączenia, nadruk i symetria.</li>
+            <li><strong>Funkcja:</strong> zapięcie, zamek i widoczne uszkodzenia.</li>
+            <li><strong>Niejasność:</strong> dodatkowe zdjęcie z linijką lub zbliżenie problemu.</li>
+          </ul>
+          <p>Zdjęcia innego kupującego nie zastępują kontroli własnej sztuki. Fotografia nie potwierdza autentyczności, składu chemicznego ani trwałości. Nieczytelny detal warto wyjaśnić, zanim produkt opuści magazyn.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section below-fold" aria-labelledby="comparison-title">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">04 / Ściąga do porównywania</span>
+          <h2 id="comparison-title">Zapisz to, co da się sprawdzić.</h2>
+        </div>
+        <p>Własna lista porównawcza pomaga odróżnić podobne oferty. Jeden wiersz powinien opisywać jeden konkretny wariant.</p>
+      </div>
+      <div class="table-scroll" role="region" aria-label="Tabela cech do porównania" tabindex="0">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Kategoria</th>
+              <th scope="col">Co porównać</th>
+              <th scope="col">O co zapytać</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Buty i sneakersy</td>
+              <td>Długość, szerokość, podeszwa, zdjęcie boczne</td>
+              <td>Czy tabela dotyczy tego modelu i wariantu?</td>
+            </tr>
+            <tr>
+              <td>Bluzy, swetry i T-shirty</td>
+              <td>Krój, wymiary, skład, wykończenie ściągaczy</td>
+              <td>Czy materiał jest elastyczny i jak go pielęgnować?</td>
+            </tr>
+            <tr>
+              <td>Kurtki i komplety</td>
+              <td>Podszewka, warstwy, zapięcia, zawartość zestawu</td>
+              <td>Czy pokazane elementy są sprzedawane razem?</td>
+            </tr>
+            <tr>
+              <td>Spodnie, szorty i bielizna</td>
+              <td>Pas, stan, nogawka, skład i zasady zwrotu</td>
+              <td>Czy pas zmierzono przed rozciągnięciem?</td>
+            </tr>
+            <tr>
+              <td>Nakrycia głowy i koszulki sportowe</td>
+              <td>Obwód, regulacja, haft i wersja kroju</td>
+              <td>Czy personalizacja zmienia warunki zwrotu?</td>
+            </tr>
+            <tr>
+              <td>Biżuteria i inne akcesoria</td>
+              <td>Długość, materiał, zapięcie, krawędzie</td>
+              <td>Czy opis określa materiał bazowy i powłokę?</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="checklist" aria-labelledby="checklist-title">
+        <h3 id="checklist-title">Przed płatnością: sześć krótkich sprawdzeń</h3>
+        <ul>
+          <li>Zapisz link do oferty i oznaczenie wybranego wariantu.</li>
+          <li>Porównaj wymiary z własnym ubraniem lub obuwiem.</li>
+          <li>Sprawdź aktualną cenę oraz dostępność rozmiaru.</li>
+          <li>Ustal koszt transportu i możliwe opłaty dodatkowe.</li>
+          <li>Przeczytaj zasady zwrotów oraz reklamacji.</li>
+          <li>Zweryfikuj sprzedawcę i pochodzenie markowego produktu.</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="section below-fold" aria-labelledby="cost-title">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">05 / Planowanie zamówienia</span>
+          <h2 id="cost-title">Cena produktu to część budżetu.</h2>
+        </div>
+        <p>Przy zakupach międzynarodowych porównuj sumę kosztów, a nie samą liczbę widoczną obok fotografii.</p>
+      </div>
+      <div class="articles">
+        <article class="article">
+          <h3>Co doliczyć do ceny?</h3>
+          <p>Uwzględnij dostawę lokalną, opłaty pośrednika, przewalutowanie i transport międzynarodowy. W zależności od zamówienia mogą dojść podatki oraz opłaty importowe. Ostateczne kwoty potwierdź u usługodawcy przed płatnością.</p>
+          <p>Koszt wysyłki do Polski może zależeć od masy rzeczywistej, gabarytów paczki i wybranej trasy. Zapytaj, czy wycena obejmuje opakowanie oraz jakie elementy usługi są dodatkowo płatne.</p>
+        </article>
+        <article class="article">
+          <h3>Co zrobić z nieaktywnym linkiem?</h3>
+          <p>Nie zakładaj, że podobna fotografia oznacza ten sam produkt. Porównaj identyfikator oferty, sprzedawcę, opis i wariant. Jeśli strona jest niedostępna, wstrzymaj decyzję do czasu potwierdzenia aktualnych danych.</p>
+          <p>W notatkach zachowaj datę sprawdzenia ceny, tabelę rozmiarów oraz pytania do sprzedawcy. Taka dokumentacja ułatwia późniejsze porównanie oferty i wyjaśnienie rozbieżności.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section below-fold faq-layout" aria-labelledby="faq-title">
+      <div>
+        <span class="eyebrow">06 / Pytania i odpowiedzi</span>
+        <h2 id="faq-title">Krótko.<br>Konkretnie.<br>Przed zakupem.</h2>
+        <p>Najważniejsze odpowiedzi dotyczące katalogów, zdjęć QC, rozmiarów i odnośników na tej stronie.</p>
+      </div>
+      <div>
+        <details open>
+          <summary>Co to jest VigorBuy spreadsheet?</summary>
+          <p>VigorBuy spreadsheet to zestawienie linków do ofert, zwykle uporządkowane według kategorii i uzupełnione zdjęciami lub opisami. Może mieć postać arkusza albo katalogu internetowego. Samo zestawienie nie potwierdza jakości, dostępności ani autentyczności produktów.</p>
+        </details>
+        <details>
+          <summary>Dokąd prowadzą odnośniki na tej stronie?</summary>
+          <p>Przyciski kategorii prowadzą do odpowiednich działów hipobuyfind.com. Pozostałe odnośniki prowadzą na stronę główną www.hipobuyfind.com. Nie są to bezpośrednie linki do koszyka VigorBuy.</p>
+        </details>
+        <details>
+          <summary>Czy zdjęcia QC potwierdzają autentyczność produktu?</summary>
+          <p>Nie. Zdjęcia QC pomagają ocenić widoczne cechy, wariant i ewentualne wady. Nie zastępują dokumentów pochodzenia, wiarygodnej weryfikacji sprzedawcy ani specjalistycznej oceny autentyczności.</p>
+        </details>
+        <details>
+          <summary>Jak dobrać rozmiar przy zakupach z katalogu?</summary>
+          <p>Porównaj tabelę konkretnej oferty z wymiarami dobrze dopasowanej rzeczy. Dla butów sprawdź sposób pomiaru długości stopy lub wkładki. Nie zakładaj, że oznaczenie M albo numer EU będzie identyczne u różnych sprzedawców.</p>
+        </details>
+        <details>
+          <summary>Jak policzyć pełny koszt zamówienia do Polski?</summary>
+          <p>Uwzględnij cenę produktu, dostawę lokalną, opłaty pośrednika, przewalutowanie, transport międzynarodowy oraz podatki i opłaty importowe, jeżeli mają zastosowanie. Ostateczne kwoty sprawdź u usługodawcy przed płatnością.</p>
+        </details>
+        <details>
+          <summary>Czy ta strona jest oficjalnym serwisem VigorBuy?</summary>
+          <p>Nie. To niezależny materiał informacyjny. Nie deklaruje współpracy z VigorBuy ani z markami pokazanymi na zdjęciach. Ilustracje nie potwierdzają dostępności produktów w katalogu docelowym.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <div>
+        <h2 id="closing-title">Wybierz kategorię.<br>Zachowaj własne kryteria.</h2>
+        <p>Przeglądaj propozycje, porównuj szczegóły i wracaj do listy sprawdzeń, gdy opis nie daje pełnej odpowiedzi.</p>
+      </div>
+      <a class="button" href="https://www.hipobuyfind.com">Przeglądaj hipobuyfind.com ↗</a>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <a class="brand" href="https://www.hipobuyfind.com">hipobuyfind.com</a>
+    <p>Niezależny przewodnik w języku polskim. Nazwy VigorBuy, Nike, Louis Vuitton, Gucci, Hermès i Dior służą identyfikacji omawianych tematów lub ilustracji. Nie deklarujemy oficjalnego powiązania z tymi podmiotami. Warunki zakupu, dostępność i cechy produktu należy sprawdzić w aktualnej ofercie.</p>
+  </footer>
+</body>
+</html>
